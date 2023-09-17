@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --secondBackground: rgb(29, 27, 27);
+  --border: rgb(49, 44, 44);
+}
+
+html {
+  color-scheme: dark;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 4rem 1fr 4rem;
+}
+
+main {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+
+  > p {
+    font-size: 2rem;
+  }
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+header {
+  background-color: var(--secondBackground);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-bottom: var(--border) solid 2px;
+
+  > p {
+    font-size: 2rem;
+  }
+
+  > nav > ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+
+    > li > a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: var(--secondBackground);
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  display: grid;
+  place-items: center;
+  border-top: var(--border) solid 2px;
+}
+
+.toolsBtn {
+  padding: 1rem;
+  background-color: var(--secondBackground);
+  width: fit-content;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  border: var(--border) solid 2px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    box-shadow: white 0px 0px 10px;
+  }
+}

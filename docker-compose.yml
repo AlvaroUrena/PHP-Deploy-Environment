@@ -1,0 +1,68 @@
+version: '3.8'
+services:
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap-server
+    hostname: ldap-service
+    environment:
+      LDAP_ADMIN_PASSWORD: 24082004
+      LDAP_BASE_DN: cn=admin,dc=example,dc=org
+    ports:
+      - 389:389
+    volumes:
+      - ./ldap-data:/var/lib/ldap
+      - ./ldap-config:/etc/ldap/slapd.d
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin-service
+    hostname: phpldapadmin-service
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: ldap-host
+    links:
+      - openldap:ldap-host
+    ports:
+      - 6443:443
+    depends_on:
+      - openldap
+  php:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: php-server
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/html
+      - ./config-php:/usr/local/etc/php
+      - ./config-apache:/etc/apache2
+    depends_on:
+      - openldap
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 24082004
+      MYSQL_DATABASE: prueba
+      MYSQL_USER: Alvaro
+      MYSQL_PASSWORD: 24082004
+    ports:
+      - 33060:3306
+    volumes:
+      - .mysql_data:/var/lib/mysql:rw
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_HOST=db
+    depends_on:
+      - db
+volumes:
+  src: {}
+  config-php: {}
+  config-apache: {}
+  .mysql_data: {}
+  ldap-data: {}
+  ldap-config: {}
