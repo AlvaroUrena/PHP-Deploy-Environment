@@ -5,7 +5,7 @@ services:
     container_name: openldap-server
     hostname: ldap-service
     environment:
-      LDAP_ADMIN_PASSWORD: 24082004
+      LDAP_ADMIN_PASSWORD: password
       LDAP_BASE_DN: cn=admin,dc=example,dc=org
     ports:
       - 389:389
@@ -42,10 +42,10 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 24082004
-      MYSQL_DATABASE: prueba
-      MYSQL_USER: Alvaro
-      MYSQL_PASSWORD: 24082004
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: password
     ports:
       - 33060:3306
     volumes:
