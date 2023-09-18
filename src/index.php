@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP Deploy with Docker</title>
   <link rel="stylesheet" href="css/normalize.css" type="text/css">
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link rel="stylesheet" href="css/global.css" type="text/css">
+  <link rel="stylesheet" href="css/home.css" type="text/css">
 </head>
 
 <body>
