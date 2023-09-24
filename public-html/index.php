@@ -17,7 +17,7 @@
   <main>
     <h1>PHP Deploy Environment made with Docker</h1>
     <p>Give me a ⭐ on <a href="#">Github</a></p>
-    <a href="/tools.php" class="toolsBtn">See Tools</a>
+    <a href="/tools" class="toolsBtn">See Tools</a>
   </main>
   <?php
   include('components/footer.php');

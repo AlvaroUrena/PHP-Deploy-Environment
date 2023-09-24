@@ -24,7 +24,7 @@ services:
       - 6443:443
     depends_on:
       - openldap
-  php:
+  apache-php:
     build:
       context: ./
       dockerfile: Dockerfile
@@ -33,7 +33,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./src:/var/www/html
+      - ./public-html:/var/www/html
       - ./config-php:/usr/local/etc/php
       - ./config-apache:/etc/apache2
     depends_on:

@@ -1,6 +1,4 @@
 .mysql_data
-config-php
-config-apache
 ldap-config
 ldap-data
 .env
